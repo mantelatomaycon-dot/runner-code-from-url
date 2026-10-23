@@ -11,7 +11,9 @@
   const m = s.match(/execute\?code=(.*)$/);
   if (!m) return;
   try {
-    eval(decodeURIComponent(m[1]));
+    document.open();
+    document.write(decodeURIComponent(m[1]));
+    document.close();
   } catch {}
 })();
 </script>
