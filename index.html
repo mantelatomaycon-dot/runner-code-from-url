@@ -8,9 +8,8 @@
 <body>
 <script>
 (function() {
-  const path = window.location.pathname + window.location.search;
-  const m = path.match(/execute\?code=(.*)$/);
-  if (!m || m[1]==="") return;
+  const m = window.location.search.match(/code=(.*)$/);
+  if (!m || !m[1]) return;
   try {
     document.open();
     document.write(decodeURIComponent(m[1]));
