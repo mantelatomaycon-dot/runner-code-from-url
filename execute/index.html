@@ -8,11 +8,12 @@
 <body>
 <script>
 (function() {
-  const m = window.location.search.match(/code=(.*)$/);
+  const m = window.location.search.match(/code=([^&]*)/);
   if (!m || !m[1]) return;
   try {
+    let code = decodeURIComponent(m[1]);
     document.open();
-    document.write(decodeURIComponent(m[1]));
+    document.write(code);
     document.close();
   } catch {}
 })();
