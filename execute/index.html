@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Execute Code</title>
-  <link rel="icon" href="https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-3rsxbfecgb/rc_gen_image/75476cbbbee346b6b6de6339c961057d.jpeg~tplv-0es2k971ck-downsize_wm_1_5_marc_b_3:RGwwMjExTkExREF6MlFncWdNYWs=.png?rcl=202610240343352EB19CAA87248831A34A&rk3s=8e244e95&rrcfp=755f3169&x-expires=2108144630&x-signature=cEuHh7Z%2B64LMjgVwwJdeBNrfrKk%3D">
+  <link rel="icon" href="https://www.image2url.com/r2/default/images/1792841777775-8356944b-7a10-4329-8d20-c111b24eb06e.png">
 </head>
 <body>
 <script>
 (function() {
   let path = window.location.pathname;
   let search = window.location.search;
-  if (path.endsWith('/') && search.includes('code=')) {
+  if (path.endsWith('/')) {
     let newUrl = path.slice(0, -1) + search;
     history.replaceState(null, '', newUrl);
   }
