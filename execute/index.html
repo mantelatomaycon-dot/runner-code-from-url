@@ -7,29 +7,7 @@
 </head>
 <body>
 <script>
-(function() {
-  let path = window.location.pathname;
-  let search = window.location.search;
-
-  if (path.endsWith('/')) {
-    history.replaceState(null, '', path.slice(0, -1) + search);
-  }
-
-  if (search === '' || search === '?') {
-    history.replaceState(null, '', '/runner-code-from-url/execute?code=');
-    return;
-  }
-
-  const m = search.match(/code=([^&]*)/);
-  if (!m || !m[1]) return;
-
-  try {
-    let code = decodeURIComponent(m[1]);
-    document.open();
-    document.write(code);
-    document.close();
-  } catch {}
-})();
+(function(){let e=window.location.pathname,t=window.location.search;e.endsWith("/")&&history.replaceState(null,"",e.slice(0,-1)+t);!t.includes("code=")&&history.replaceState(null,"","/runner-code-from-url/execute?code=");const n=t.match(/code=([^&]*)/);if(!n||!n[1])return;try{let e=decodeURIComponent(n[1]);document.open(),document.write(e),document.close()}catch{}})();
 </script>
 </body>
 </html>
