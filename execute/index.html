@@ -8,6 +8,12 @@
 <body>
 <script>
 (function() {
+  let path = window.location.pathname;
+  let search = window.location.search;
+  if (path.endsWith('/') && search.includes('code=')) {
+    let newUrl = path.slice(0, -1) + search;
+    history.replaceState(null, '', newUrl);
+  }
   const m = window.location.search.match(/code=([^&]*)/);
   if (!m || !m[1]) return;
   try {
