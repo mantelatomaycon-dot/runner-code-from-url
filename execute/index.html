@@ -10,12 +10,19 @@
 (function() {
   let path = window.location.pathname;
   let search = window.location.search;
+
   if (path.endsWith('/')) {
-    let newUrl = path.slice(0, -1) + search;
-    history.replaceState(null, '', newUrl);
+    history.replaceState(null, '', path.slice(0, -1) + search);
   }
-  const m = window.location.search.match(/code=([^&]*)/);
+
+  if (search === '' || search === '?') {
+    history.replaceState(null, '', '/runner-code-from-url/execute?code=');
+    return;
+  }
+
+  const m = search.match(/code=([^&]*)/);
   if (!m || !m[1]) return;
+
   try {
     let code = decodeURIComponent(m[1]);
     document.open();
