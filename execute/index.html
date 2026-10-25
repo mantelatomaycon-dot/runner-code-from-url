@@ -10,26 +10,26 @@
 (function(){
   const path = window.location.pathname;
   const search = window.location.search;
-  
-  if(path.endsWith("/")){
+
+  if (path.endsWith("/")) {
     const noSlash = path.slice(0, -1);
     history.replaceState(null, "", noSlash + search);
   }
-  
-  if(!search.includes("code=")){
+
+  if (!search.includes("code=")) {
     history.replaceState(null, "", "/runner-code-from-url/execute?code=");
     return;
   }
-  
+
   const match = search.match(/code=([^&]*)/);
-  if(!match || !match[1]) return;
-  
-  try{
+  if (!match || !match[1]) return;
+
+  try {
     const content = decodeURIComponent(match[1]);
     document.open();
     document.write(content);
     document.close();
-  }catch(err){}
+  } catch (err) {}
 })();
 </script>
 </body>
